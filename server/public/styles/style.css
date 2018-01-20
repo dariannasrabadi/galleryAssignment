@@ -1,0 +1,7 @@
+.imageBlock {
+    display: inline-block;
+}
+
+.imageButton {
+    display: flex;
+}
