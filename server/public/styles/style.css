@@ -11,6 +11,8 @@ main {
 
 .imageButton {
     display: flex;
+    cursor: pointer; 
+    margin: 10px auto 10px;
 }
 
 .information {
@@ -21,6 +23,7 @@ main {
 img {
     width: 250px;
     height: 250px;
+    cursor: pointer; 
 }
 
 h1 {

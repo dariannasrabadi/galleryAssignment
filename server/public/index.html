@@ -15,8 +15,7 @@
                 <blockquote ng-if="vm.imageResult[$index].text_display">{{images.description}}</blockquote>
                 <h3 ng-if="vm.imageResult[$index].text_display">Total times read: {{images.view_count}}</h3>
             </div>
-            <button class="imageButton" ng-click="vm.likeCounter(images.id, images.like_count)">Like</button>
-            <p>Number of Likes: {{images.like_count}}</p>
+            <button class="imageButton" ng-click="vm.likeCounter(images.id, images.like_count)">Like this Picture? Number of Likes: {{images.like_count}}</button>
         </div>
     </main>
 </body>
