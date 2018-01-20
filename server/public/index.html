@@ -12,11 +12,11 @@
         <div class="imageBlock" ng-repeat="images in vm.imageResult">
             <div class="information" ng-click="vm.imageClick(images.id, images.view_count, $index)">
                 <img ng-src={{images.image}} ng-if="vm.imageResult[$index].image_display">
-                <blockquote ng-if="vm.imageResult[$index].text_display">This image is blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah </blockquote>
+                <blockquote ng-if="vm.imageResult[$index].text_display">{{images.description}}</blockquote>
                 <h3 ng-if="vm.imageResult[$index].text_display">Total times read: {{images.view_count}}</h3>
             </div>
             <button class="imageButton" ng-click="vm.likeCounter(images.id, images.like_count)">Like</button>
-            <p>Counter Ex: {{images.like_count}}</p>
+            <p>Number of Likes: {{images.like_count}}</p>
         </div>
     </main>
 </body>
