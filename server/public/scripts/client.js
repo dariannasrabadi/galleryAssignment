@@ -19,7 +19,13 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
 		});
     };
 
-    self.getImages()
+    self.getImages();
+
+    self.likeCounter = function (data) {
+        console.log('In like counter', this);
+        console.log(data);
+        
+    };
 
 
 

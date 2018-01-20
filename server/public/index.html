@@ -11,8 +11,8 @@
         <h1>My Gallery</h1>
         <div class="imageBlock" ng-repeat="images in vm.imageResult">
             <img ng-src={{images.image}}>
-            <button class="imageButton">Like</button>
-            <p>Counter Ex: </p>
+            <button class="imageButton" ng-click="vm.likeCounter(images.id)">Like</button>
+            <p>Counter Ex: {{images.like_count}}</p>
         </div>
     </main>
 </body>
