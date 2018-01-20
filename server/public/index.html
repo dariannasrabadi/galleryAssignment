@@ -9,33 +9,8 @@
 <body ng-app="appStart">
     <main ng-controller="GalleryController as vm">
         <h1>My Gallery</h1>
-        <div class="imageBlock">
-            <img src="http://www.fmwconcepts.com/misc_tests/caption_test/1tmp_6840.gif">
-            <button class="imageButton">Like</button>
-            <p>Counter Ex: </p>
-        </div>
-        <div class="imageBlock">
-            <img src="http://www.fmwconcepts.com/misc_tests/caption_test/1tmp_6840.gif">
-            <button class="imageButton">Like</button>
-            <p>Counter Ex: </p>
-        </div>
-        <div class="imageBlock">
-            <img src="http://www.fmwconcepts.com/misc_tests/caption_test/1tmp_6840.gif">
-            <button class="imageButton">Like</button>
-            <p>Counter Ex: </p>
-        </div>
-        <div class="imageBlock">
-            <img src="http://www.fmwconcepts.com/misc_tests/caption_test/1tmp_6840.gif">
-            <button class="imageButton">Like</button>
-            <p>Counter Ex: </p>
-        </div>
-        <div class="imageBlock">
-            <img src="http://www.fmwconcepts.com/misc_tests/caption_test/1tmp_6840.gif">
-            <button class="imageButton">Like</button>
-            <p>Counter Ex: </p>
-        </div>
-        <div class="imageBlock">
-            <img src="http://www.fmwconcepts.com/misc_tests/caption_test/1tmp_6840.gif">
+        <div class="imageBlock" ng-repeat="images in vm.imageResult">
+            <img ng-src={{images.image}}>
             <button class="imageButton">Like</button>
             <p>Counter Ex: </p>
         </div>
