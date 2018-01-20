@@ -20,7 +20,21 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
             });
     }; // END of GET IMAGES function
 
-    self.getImages(); // calling images to DOM on load.
+    self.refreshImages = function (id, count) { // Start of refreshImages Function
+        $http({
+            method: 'PUT',
+            url: '/gallery/',
+        })
+            .then(function(response) {
+                console.log('Update image status: ', response);
+                self.getImages(); 
+            })
+            .catch(function(error) {
+                console.log('Error updating image status: ', error);
+		    });  
+    };// End of refreshImages Function
+
+    self.refreshImages(); // calling images to DOM on load.
 
     self.likeCounter = function (id, count) { // Start of likeCounter Function
         let dataToSend = {

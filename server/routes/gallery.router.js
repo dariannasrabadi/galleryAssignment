@@ -15,6 +15,19 @@ router.get('/', (req, res) => {
         });
 });
 
+router.put('/', (req, res) => {
+    let queryText = `UPDATE images
+                     SET image_display = true, text_display = false;`;
+    pool.query(queryText)
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('Error making update query', err);
+            res.sendStatus(500);
+        });
+});
+
 router.put('/:id', (req, res) => {
     let count = req.body.like_count + 1
     let queryText = `UPDATE images
