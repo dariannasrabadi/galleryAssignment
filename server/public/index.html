@@ -10,7 +10,10 @@
     <main ng-controller="GalleryController as vm">
         <h1>My Gallery</h1>
         <div class="imageBlock" ng-repeat="images in vm.imageResult">
+            <div class="information" >
             <img ng-src={{images.image}}>
+            <!-- <blockquote>This image is blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah </blockquote> -->
+            </div>
             <button class="imageButton" ng-click="vm.likeCounter(images.id, images.like_count)">Like</button>
             <p>Counter Ex: {{images.like_count}}</p>
         </div>
