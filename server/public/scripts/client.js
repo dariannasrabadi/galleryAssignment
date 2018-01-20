@@ -34,13 +34,12 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
             data: dataToSend
         })
             .then(function(response) {
-                self.getFood();
+                console.log('Update like count: ', response);
+                self.getImages(); 
         })
             .catch(function(error) {
                 console.log('Error updating like counts: ', error);
 		});  
     };// End of likeCounter Function
-
-g
 
 }]); //Gallery Controller End
