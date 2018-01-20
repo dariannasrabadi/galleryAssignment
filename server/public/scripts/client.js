@@ -11,20 +11,18 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
             method: 'GET',
             url: '/gallery'
         })
-        .then(function(response) {
-            console.log('get response: ', response.data);
-            self.imageResult = response.data;           
-        })
-        .catch(function(error) {
-            console.log('Error getting images', error);
-		});
+            .then(function(response) {
+                console.log('get response: ', response.data);
+                self.imageResult = response.data;
+            })
+            .catch(function(error) {
+                console.log('Error getting images', error);
+            });
     }; // END of GET IMAGES function
 
     self.getImages(); // calling images to DOM on load.
 
     self.likeCounter = function (id, count) { // Start of likeCounter Function
-        console.log('In like counter', this);
-        console.log(id);
         let dataToSend = {
             like_count: count
         }
@@ -36,10 +34,28 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
             .then(function(response) {
                 console.log('Update like count: ', response);
                 self.getImages(); 
-        })
+            })
             .catch(function(error) {
                 console.log('Error updating like counts: ', error);
-		});  
+		    });  
     };// End of likeCounter Function
 
+    self.imageClick = function (id, count, i) {//Start of viewcounter & hide/show image PUT
+        let dataToSend = {
+            image_display: this.imageResult[i].image_display,
+            view_count: count
+        }
+        $http({
+            method: 'PUT',
+            url: '/gallery/view/' + id,
+            data: dataToSend
+        })
+            .then(function(response) {
+                console.log('Update view count: ', response);
+                self.getImages(); 
+            })
+            .catch(function(error) {
+                console.log('Error updating view count: ', error);
+		    });  
+    }//END of viewcounter & hide/show image PUT
 }]); //Gallery Controller End
