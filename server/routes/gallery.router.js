@@ -7,10 +7,21 @@ router.get('/', (req, res) => {
                      ORDER BY id;`;
     pool.query(queryText)
         .then((result) => {
-            res.send(result.rows);
+            let dataOne = [result.rows]
+            let queryText = `SELECT * FROM comments
+                             ORDER BY id;`;  
+            pool.query(queryText)
+                .then((result) => {
+                    dataOne.push(result.rows)                    
+                    res.send(dataOne);
+                })
+                .catch((err) => {
+                    console.log('Error making get comments  query', err);
+                    res.sendStatus(500);
+                });
         })
         .catch((err) => {
-            console.log('Error making get images  gquery', err);
+            console.log('Error making get images  query', err);
             res.sendStatus(500);
         });
 });
