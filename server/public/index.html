@@ -86,11 +86,11 @@
                 <h3 ng-if="vm.imageResult[$index].text_display">Total times read: {{images.view_count}}</h3>
             </div>
             <button class="btn btn-primary col-md-7" ng-click="vm.likeCounter(images.id, images.like_count)">Like? Total Likes: {{images.like_count}}</button>
-            <button class="btn btn-info col-md-4" ng-click="vm.showComments">Comments</button>
+            <button class="btn btn-info col-md-4" ng-click="vm.displayComments(images.id)">Comments</button>
             <div class="col-md-12">
-               <ul class="list-group" ng-hide="vm.commentStatus">
-                   <li class="list-group-item" ng-repeat="comments in vm.commentResults">
-                       testing all this
+               <ul class="list-group">
+                   <li class="list-group-item" ng-repeat="comments in vm.getComments" ng-if="images.id == comments.image_id">
+                       {{comments.comment}}
                     </li> 
                     <button class="addComment" ng-click="addComment" >Add Comment</button>
                </ul>
