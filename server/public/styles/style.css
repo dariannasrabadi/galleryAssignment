@@ -5,15 +5,8 @@ main {
 
 .imageBlock {
     display: inline-block;
-    margin: auto;
-    padding-left: 65px
 }
 
-.imageButton {
-    display: flex;
-    cursor: pointer; 
-    margin: 10px auto 10px;
-}
 
 .information {
     width: 250px;
@@ -28,4 +21,10 @@ img {
 
 h1 {
     text-align: center;
+}
+
+button {
+    cursor: pointer; 
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

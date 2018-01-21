@@ -72,4 +72,8 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
                 console.log('Error updating view count: ', error);
 		    });  
     }//END of viewcounter & hide/show image PUT
+
+    self.showComments = function () {
+        
+    }
 }]); //Gallery Controller End

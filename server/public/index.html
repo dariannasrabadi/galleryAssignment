@@ -4,18 +4,28 @@
     <title>Darian's Gallery</title>
     <script src="vendors/angular.min.js"></script>
     <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body ng-app="appStart">
     <main ng-controller="GalleryController as vm">
         <h1>My Gallery</h1>
-        <div class="imageBlock" ng-repeat="images in vm.imageResult">
+        <div class="imageBlock col-md-4" ng-repeat="images in vm.imageResult">
             <div class="information" ng-click="vm.imageClick(images.id, images.view_count, $index)">
                 <img ng-src={{images.image}} ng-if="vm.imageResult[$index].image_display">
                 <blockquote ng-if="vm.imageResult[$index].text_display">{{images.description}}</blockquote>
                 <h3 ng-if="vm.imageResult[$index].text_display">Total times read: {{images.view_count}}</h3>
             </div>
-            <button class="imageButton" ng-click="vm.likeCounter(images.id, images.like_count)">Like this Picture? Number of Likes: {{images.like_count}}</button>
+            <button class="btn btn-primary" ng-click="vm.likeCounter(images.id, images.like_count)">Like? Total Likes: {{images.like_count}}</button>
+            <button class="btn btn-info" ng-click="vm.showComments">Comments</button>
+            <div class="col-md-12">
+               <ul class="list-group" ng-hide="vm.commentStatus">
+                   <li class="list-group-item" ng-repeat="comments in vm.commentResults">
+                       testing all this
+                    </li> 
+                    <button ng-click="addComment">Add Comment</button>
+               </ul>
+            </div>
         </div>
     </main>
 </body>
