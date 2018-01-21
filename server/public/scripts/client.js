@@ -5,6 +5,9 @@ let app = angular.module('appStart', []);
 app.controller('GalleryController', ['$http', function($http) { //Gallery Controller Start
     console.log('Gallery Controller Loaded');
     const self = this;
+    self.hideAddComment = false;
+    self.hideSubmitComment = true;
+    self.commentId = 0;
 
     self.refreshComments = function () { // Start of refreshComments Function
         $http({
@@ -19,7 +22,7 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
 		    });  
     };// End of refreshComments Function
 
-    self.refreshComments();
+    self.refreshComments(); //reset comments to hide
 
     self.getImages = function() { // Start of GET IMAGES function
         $http({
@@ -91,7 +94,7 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
 		    });  
     }//END of viewcounter & hide/show image PUT
 
-    self.showComments = function (id) {
+    self.showComments = function (id) {//start show comments function - to show only the comment of image clicked.
         console.log(id);
         $http({
             method: 'GET',
@@ -104,9 +107,9 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
             .catch(function(error) {
                 console.log('Error getting comments', error);
             });
-    }
+    }//End show comments function - to show only the comment of image clicked.
 
-    self.displayComments = function (id) {
+    self.displayComments = function (id) { //Start display comments function (to unhide comments)
         console.log(id);
         $http({
             method: 'PUT',
@@ -119,6 +122,15 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
             .catch(function(error) {
                 console.log('Error updating image status: ', error);
 		    });  
-    }
+    } //END display comments function (to unhide comments)
+
+    // self.addComment = function (id) {
+    //     self.hideAddComment = true;
+    //     console.log('inside');
+    //     self.hideSubmitComment = false;
+    //     self.commentId = id;
+    // };
+
+
 
 }]); //Gallery Controller End

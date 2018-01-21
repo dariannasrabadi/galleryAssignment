@@ -70,6 +70,15 @@ a {
     margin: auto;
 }
 
+#submit {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+ul {
+  margin-top: 10px;
+}
+
 /* Bottom code is taken from hakimel. https://codepen.io/hakimel/pen/aIhkf/ */
 
 html, body {

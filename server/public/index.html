@@ -92,8 +92,10 @@
                    <li class="list-group-item" ng-repeat="comments in vm.getComments" ng-hide="comments.comment_status" ng-if="images.id == comments.image_id">
                        {{comments.comment}}
                     </li> 
-                    <!-- <button class="addComment" ng-click="addComment" ng-hide="vm.getComments.comment_status">Add Comment</button> -->
+                    <!-- <button class="addComment" ng-click="vm.addComment(images.id)" ng-hide="vm.hideAddComment">Add Comment</button> -->
                </ul>
+                <!-- <input ng-hide="vm.hideSubmitComment" type="text">
+                <button class="btn btn-success" id="submit" ng-hide="vm.hideSubmitComment">Submit</button> -->
             </div>
         </div>
     </main>
