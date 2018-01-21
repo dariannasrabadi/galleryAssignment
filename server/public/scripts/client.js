@@ -6,6 +6,21 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
     console.log('Gallery Controller Loaded');
     const self = this;
 
+    self.refreshComments = function () { // Start of refreshComments Function
+        $http({
+            method: 'PUT',
+            url: '/comments',
+        })
+            .then(function(response) {
+                console.log('refresh comments status: ', response);
+            })
+            .catch(function(error) {
+                console.log('Error refreshing comments status: ', error);
+		    });  
+    };// End of refreshComments Function
+
+    self.refreshComments();
+
     self.getImages = function() { // Start of GET IMAGES function
         $http({
             method: 'GET',
@@ -84,7 +99,7 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
         })
             .then(function(response) {
                 console.log('get comments response: ', response.data);
-                self.commentsResult = response.data;
+                self.getComments = response.data;
             })
             .catch(function(error) {
                 console.log('Error getting comments', error);
@@ -105,6 +120,5 @@ app.controller('GalleryController', ['$http', function($http) { //Gallery Contro
                 console.log('Error updating image status: ', error);
 		    });  
     }
-    
 
 }]); //Gallery Controller End

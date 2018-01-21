@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
     let queryText = `UPDATE comments
-                     SET comment_status = true
+                     SET comment_status = false
                      WHERE id = $1;`;
     pool.query(queryText, [req.params.id])
         .then((result) => {
@@ -28,6 +28,19 @@ router.put('/:id', (req, res) => {
         })
         .catch((err) => {
             console.log('Error making update comments query', err);
+            res.sendStatus(500);
+        });
+});
+
+router.put('/', (req, res) => {
+    let queryText = `UPDATE comments
+                     SET comment_status = true;`;
+    pool.query(queryText)
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('Error making update comments status query', err);
             res.sendStatus(500);
         });
 });
